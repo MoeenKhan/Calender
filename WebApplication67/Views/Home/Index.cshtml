@@ -1,0 +1,28 @@
+﻿<table class="table-bordered">
+    <tr>
+        <th>Month</th>
+        <th>Days</th>
+    <tr>
+<tbody>
+    @{
+    
+        
+    for (int i = 0; i <= 10; i++)
+    {
+        var Date = new DateTime(2018, 2, 1).AddMonths(i);
+        
+        <tr>
+            <td>@Html.TextBox("what",@Date.ToString("MMMM"))</td>
+            <td>
+                @for (int j = 1; j <= @DateTime.DaysInMonth(Date.Year, Date.Month); j++)
+                {
+                    @Html.ActionLink(@j.ToString()+" ", @j.ToString(), @Date.ToString("MMMM"))
+
+                }
+            </td>
+        </tr>
+        
+    }
+    }
+</tbody>
+</table>
